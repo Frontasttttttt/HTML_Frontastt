@@ -205,15 +205,19 @@ nav ul li a:hover {
 }
 
 .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     border: 2px solid #00ff00; 
     padding: 16px;
     text-align: center;
-    margin: 16px auto;
-    width: 320px;
     background-color: #2c2c2c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     color: #fff;
     border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .product-card img {
@@ -227,7 +231,11 @@ nav ul li a:hover {
     margin: 16px 0;
     color: #00ff00;
     text-decoration: none;
-    display: block; 
+    display: block;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-card a:hover {
@@ -249,30 +257,33 @@ nav ul li a:hover {
 
 .searchbar {
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto 20px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .searchbar input {
-    width: 100%;
+    flex: 1 1 auto;
     padding: 8px;
     border: 1px solid #ad14ff;
     border-radius: 8px 0 0 8px;
     font-size: 14px;
     background-color: #2c2c2c; 
     color: #ffffff; 
+    min-width: 0;
 }
 
 .searchbar button {
+    flex: 0 1 auto; 
     padding: 8px;
     border: 1px solid #ad14ff;
     border-radius: 0 8px 8px 0;
     background-color: #ad14ff;
     cursor: pointer;
     font-size: 18px;
-    width: 20%;
     transition: 0.3s;
+    min-width: 0;
 }
 
 .searchbar button:hover {
@@ -320,9 +331,10 @@ nav ul li a:hover {
 
 .catalog-product-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     width: 100%;
+    justify-content: center;
 }
 
 .product-card {
@@ -367,4 +379,157 @@ nav ul li a:hover {
     font-size: 19px;
     color: #ad14ff;
     margin-top: 16px;
+}
+
+@media (max-width: 1920px) {
+    .catalog-product-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1366px) {
+    .catalog-product-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .catalog-filter {
+        max-width: 200px;
+    }
+    .searchbar input, .searchbar button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .catalog-product-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .catalog-filter {
+        max-width: 180px;
+    }
+    .searchbar input, .searchbar button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 800px) {
+    .catalog-product-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    .catalog-filter {
+        max-width: 150px;
+    }
+    .searchbar {
+        flex-direction: column;
+    }
+    .searchbar input, .searchbar button {
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    .searchbar input {
+        margin-bottom: 10px;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .product-card {
+        width: 100%;
+    }
+}
+
+.product-container {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.general-information {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.general-information-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.general-information-bar {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.general-information-bar h1 {
+    font-size: 28px;
+    color: #00ff00;
+}
+
+.general-information-bar p {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.general-information-bar .price {
+    font-size: 24px;
+    color: #ad14ff;
+    margin-top: 10px;
+}
+
+.general-information-bar .product-code {
+    font-size: 14px;
+    color: #a3a3a3;
+}
+
+.general-information-bar .rating {
+    margin-top: 10px;
+}
+
+.general-information-bar .buy-button,
+.general-information-bar .add-to-cart-button {
+    background-color: #00ff00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #1c1c1c;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.general-information-bar .buy-button:hover,
+.general-information-bar .add-to-cart-button:hover {
+    background-color: #228b22;
+}
+
+.product-specifications,
+.additional-services {
+    margin-top: 20px;
+}
+
+.product-specifications h2,
+.additional-services h2 {
+    font-size: 22px;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.product-specifications ul,
+.additional-services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-specifications ul li,
+.additional-services ul li {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 5px;
 }
